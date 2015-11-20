@@ -1,8 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('app')
-		.controller('IndexController', indexController);
+	app.controller('IndexController', indexController);
 
 	function indexController() {
 		var vm = this;
