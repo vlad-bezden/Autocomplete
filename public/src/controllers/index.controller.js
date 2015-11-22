@@ -1,11 +1,11 @@
-(function () {
+(function (app) {
 	'use strict';
 
-	app.controller('IndexController', indexController);
+	app.controller('IndexCtrl', indexController);
 
 	function indexController() {
 		var vm = this;
-		
-		vm.message = 'Hello World!';
+
+		vm.message = 'Hello World!!!';
 	}
-} ());
+} (angular.module('app')));
