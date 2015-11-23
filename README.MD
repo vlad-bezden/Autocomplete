@@ -1,1 +1,1 @@
-# Example of using typeahead using Angularjs.
+# Example of using typeahead using AngularJS.
