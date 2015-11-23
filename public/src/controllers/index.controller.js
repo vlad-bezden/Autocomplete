@@ -1,6 +1,7 @@
 (function (app) {
 	'use strict';
 
+
 	app.controller('IndexCtrl', indexController);
 
 	function indexController() {
