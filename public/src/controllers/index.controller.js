@@ -6,10 +6,16 @@
 	function indexController($log, resourceService) {
 		var vm = this;
 
-		vm.message = 'Hello World!!!';
-		
-		var securities = resourceService.query();
-		
-		$log.debug(securities);
+		vm.selectedSecurity;
+
+		vm.findSecurities = function (securityName) {
+			$log.debug('searching for "' + securityName + '" security');
+
+			var security = {
+				'input': securityName
+			};
+
+			return resourceService.query(security).$promise;
+		};
 	}
 } (angular.module('app')));

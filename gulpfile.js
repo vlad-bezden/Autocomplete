@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	webserver = require('gulp-webserver');
 
-gulp.task('build', function () {
+gulp.task('run', function () {
 	gulp.src('public')
 		.pipe(webserver({
 			livereload: true,
@@ -9,4 +9,4 @@ gulp.task('build', function () {
 		}));
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['run']);
