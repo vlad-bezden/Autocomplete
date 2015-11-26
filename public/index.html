@@ -4,28 +4,35 @@
 <head>
 	<title>Typeahead Autocomplete Example</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="src/app.css">
 </head>
 
 <body ng-app="app" ng-controller="IndexCtrl as vm">
 	<div class='container-fluid'>
-		<input type="text" ng-model="vm.selectedSecurity" placeholder="Enter Security" uib-typeahead="security.Name for security in vm.findSecurities($viewValue)"
-		typeahead-min-length="2" typeahead-wait-ms="100"
-		typeahead-loading="loadingSecurities" typeahead-no-results="noResults" class="form-control">
-		<i ng-show="loadingSecurities" class="glyphicon glyphicon-refresh"></i>
-		<div ng-show="noResults">
-			<i class="glyphicon glyphicon-remove"></i> No Results Found
+		<div class="col-md-8 col-md-offset-2">
+			<form role="form">
+				<div class="form-group">
+					<input type="text" ng-model="vm.selectedSecurity" placeholder="Enter Security" uib-typeahead="security.Name for security in vm.findSecurities($viewValue)"
+					typeahead-min-length="2" typeahead-wait-ms="100" typeahead-loading="loadingSecurities" typeahead-no-results="noResults"
+					class="form-control">
+					<i ng-show="loadingSecurities" class="glyphicon glyphicon-refresh"></i>
+					<div ng-show="noResults">
+						<i class="glyphicon glyphicon-remove"></i> No Results Found
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
-	
-		<!-- Angular and Bootstrap JavaScript files -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
-		
-		<!-- application specific js files -->
-		<script src="./src/app.js"></script>
-		<script src="./src/services/resourceService.js"></script>
-		<script src="./src/controllers/index.controller.js"></script>
+
+	<!-- Angular and Bootstrap JavaScript files -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+
+	<!-- application specific js files -->
+	<script src="src/app.js"></script>
+	<script src="src/services/resourceService.js"></script>
+	<script src="src/controllers/index.controller.js"></script>
 </body>
 
 </html>
