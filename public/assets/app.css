@@ -7,8 +7,18 @@
 
 #deleteButton {
 	float: right;
+	visibility: hidden;
 }
 
 td.ng-binding {
 	vertical-align: middle          !important;
+}
+
+#securitiesTable tbody tr.ng-scope:hover #deleteButton {
+	visibility: visible;
+}
+
+#securitiesTable tbody tr.ng-scope:hover {
+	/* cursor: pointer; */
+	background-color: lightgray;
 }
