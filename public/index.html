@@ -13,7 +13,8 @@
 			<form role="form">
 				<div class="form-group">
 					<input type="text" ng-model="vm.selectedSecurity" placeholder="Enter Security" uib-typeahead="security.Name for security in vm.findSecurities($viewValue)"
-					typeahead-min-length="2" typeahead-wait-ms="100" typeahead-loading="loadingSecurities" typeahead-no-results="noResults"
+					typeahead-min-length="2" typeahead-wait-ms="200" typeahead-loading="loadingSecurities" typeahead-no-results="noResults"
+					typeahead-on-select="vm.securitySelected($item, $model, $label)"
 					class="form-control">
 					<i ng-show="loadingSecurities" class="glyphicon glyphicon-refresh"></i>
 					<div ng-show="noResults">

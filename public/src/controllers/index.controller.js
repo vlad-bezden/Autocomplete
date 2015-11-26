@@ -6,7 +6,7 @@
 	function indexController($log, resourceService) {
 		var vm = this;
 
-		vm.selectedSecurity;
+		vm.selectedSecurities = [];
 
 		vm.findSecurities = function (securityName) {
 			$log.debug('searching for "' + securityName + '" security');
@@ -16,6 +16,11 @@
 			};
 
 			return resourceService.query(security).$promise;
+		};
+		
+		vm.securitySelected = function (item, model, label) {
+			$log.debug(item);
+			vm.selectedSecurities.push(item);
 		};
 	}
 } (angular.module('app')));
