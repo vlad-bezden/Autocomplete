@@ -7,6 +7,7 @@
 		var vm = this;
 
 		vm.selectedSecurities = [];
+		vm.selectedSecurity;
 
 		vm.findSecurities = function (securityName) {
 			$log.debug('searching for "' + securityName + '" security');
@@ -21,6 +22,11 @@
 		vm.securitySelected = function (item, model, label) {
 			$log.debug(item);
 			vm.selectedSecurities.push(item);
+			vm.selectedSecurity = undefined;
+		};
+		
+		vm.deleteSecurity = function (index) {
+			vm.selectedSecurities.splice(index, 1);
 		};
 	}
 } (angular.module('app')));

@@ -4,24 +4,43 @@
 <head>
 	<title>Typeahead Autocomplete Example</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="src/app.css">
+	<link rel="stylesheet" href="assets/app.css">
 </head>
 
-<body ng-app="app" ng-controller="IndexCtrl as vm">
-	<div class='container-fluid'>
+<body class="container-fluid" ng-app="app" ng-controller="IndexCtrl as vm">
+	<div class="row-fluid">
 		<div class="col-md-8 col-md-offset-2">
 			<form role="form">
 				<div class="form-group">
 					<input type="text" ng-model="vm.selectedSecurity" placeholder="Enter Security" uib-typeahead="security.Name for security in vm.findSecurities($viewValue)"
 					typeahead-min-length="2" typeahead-wait-ms="200" typeahead-loading="loadingSecurities" typeahead-no-results="noResults"
-					typeahead-on-select="vm.securitySelected($item, $model, $label)"
-					class="form-control">
+					typeahead-on-select="vm.securitySelected($item, $model, $label)" class="form-control">
 					<i ng-show="loadingSecurities" class="glyphicon glyphicon-refresh"></i>
 					<div ng-show="noResults">
 						<i class="glyphicon glyphicon-remove"></i> No Results Found
 					</div>
 				</div>
 			</form>
+
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Symbol</th>
+						<th>Name</th>
+						<th>Exchange</th>
+						<th></th>
+					</tr>
+					<tbody>
+						<tr ng-repeat="security in vm.selectedSecurities">
+							<td>{{security.Symbol}}</td>
+							<td>{{security.Name}}</td>
+							<td>{{security.Exchange}}</td>
+							<td>
+								<button id="deleteButton" class="btn btn-danger" ng-click="vm.deleteSecurity($index)">Delete</button>
+							</td>
+						</tr>
+					</tbody>
+			</table>
 		</div>
 	</div>
 

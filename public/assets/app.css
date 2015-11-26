@@ -1,0 +1,14 @@
+/*body {
+	margin-top: 50px;
+}*/
+.container-fluid {
+	padding: 20px 25px;
+}
+
+#deleteButton {
+	float: right;
+}
+
+td.ng-binding {
+	vertical-align: middle          !important;
+}
